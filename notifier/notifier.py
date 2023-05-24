@@ -1,3 +1,7 @@
+class Notifier:
+    def __init__(self) -> None:
+        pass
+
 class BarkNotifier:
     def __init__(self, server:str, token:str) -> None:
         if server[-1] != "/":
