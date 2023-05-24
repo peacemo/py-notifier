@@ -8,6 +8,8 @@ To push text to your iPhone via Bark Server or push something to your E-mail!
 
 - [ ] E-mail
 
+- [ ] Local push - system notification, or just a simple sound play. 
+
 ## Installation
 
 run:
