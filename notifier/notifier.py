@@ -12,7 +12,7 @@ class Notifier:
         if platform_os == "Windows" and int(platform_rls) >= 10:
             print(F"Super push, {title}, {content}")
             try:
-                self._push2win()
+                self._push2win(title=title, content=content)
                 return True
             except:
                 return False
