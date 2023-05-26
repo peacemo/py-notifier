@@ -2,7 +2,44 @@ class Notifier:
     def __init__(self) -> None:
         pass
 
-class BarkNotifier:
+    def push(self, title:str="TITLE", content:str="Hello Toast. "):
+        import platform  # check which OS is using. 
+
+        platform_os = platform.system()  # OS name
+        platform_rls = platform.release()  # OS release version
+
+        # For Windows
+        if platform_os == "Windows" and int(platform_rls) >= 10:
+            print(F"Super push, {title}, {content}")
+            try:
+                self._push2win()
+                return True
+            except:
+                return False
+        else:
+            print(F"Super push, {title}, {content}")
+            return True
+
+        pass
+
+    def _push2win(self, title:str="TITLE", content:str="Hello Toast. "):
+        from win10toast_click import ToastNotifier 
+        import warnings
+        warnings.filterwarnings("ignore")
+
+        toaster = ToastNotifier()
+
+        toaster.show_toast(
+            title, # title
+            content, # message 
+            duration=None, # for how many seconds toast should be visible; None = leave notification in Notification Center
+            threaded=True, # True = run other code in parallel; False = code execution will wait till notification disappears 
+            )
+        
+        return True
+        pass
+
+class BarkNotifier(Notifier):
     """
     BarkNotifier(server: str, token: str)
 
@@ -23,6 +60,8 @@ class BarkNotifier:
     """
 
     def __init__(self, server:str, token:str) -> None:
+        super().__init__()
+
         if server[-1] != "/":
             server += "/"
         self.server = server
@@ -46,6 +85,8 @@ class BarkNotifier:
         - If the push is successful (status code 200), "Push Successed." is printed; otherwise, "Push failed, something went wrong with the SERVER." is printed.
         - If an exception or error occurs during the push request, "Bad URL: {url}" is printed.
         """
+
+        super().push(title=title, content=content)
 
         import requests
 
