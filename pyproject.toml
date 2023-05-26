@@ -9,6 +9,7 @@ packages = [{include = "notifier"}]
 [tool.poetry.dependencies]
 python = "^3.7"
 requests = "^2.30.0"
+win10toast-click = "^0.1.2"
 
 
 [tool.poetry.group.test.dependencies]
