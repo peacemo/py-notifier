@@ -8,36 +8,36 @@ class Notifier:
         platform_os = platform.system()  # OS name
         platform_rls = platform.release()  # OS release version
 
-        # For Windows
-        if platform_os == "Windows" and int(platform_rls) >= 10:
-            print(F"Super push, {title}, {content}")
-            try:
-                self._push2win(title=title, content=content)
-                return True
-            except:
-                return False
-        else:
-            print(F"Super push, {title}, {content}")
-            return True
+        # # For Windows
+        # if platform_os == "Windows" and int(platform_rls) >= 10:
+        #     print(F"Super push, {title}, {content}")
+        #     try:
+        #         self._push2win(title=title, content=content)
+        #         return True
+        #     except:
+        #         return False
+        # else:
+        #     print(F"Super push, {title}, {content}")
+        #     return True
 
         pass
 
-    def _push2win(self, title:str="TITLE", content:str="Hello Toast. "):
-        from win10toast_click import ToastNotifier 
-        import warnings
-        warnings.filterwarnings("ignore")
+    # def _push2win(self, title:str="TITLE", content:str="Hello Toast. "):
+    #     from win10toast_click import ToastNotifier 
+    #     import warnings
+    #     warnings.filterwarnings("ignore")
 
-        toaster = ToastNotifier()
+    #     toaster = ToastNotifier()
 
-        toaster.show_toast(
-            title, # title
-            content, # message 
-            duration=None, # for how many seconds toast should be visible; None = leave notification in Notification Center
-            threaded=True, # True = run other code in parallel; False = code execution will wait till notification disappears 
-            )
+    #     toaster.show_toast(
+    #         title, # title
+    #         content, # message 
+    #         duration=None, # for how many seconds toast should be visible; None = leave notification in Notification Center
+    #         threaded=True, # True = run other code in parallel; False = code execution will wait till notification disappears 
+    #         )
         
-        return True
-        pass
+    #     return True
+    #     pass
 
 class BarkNotifier(Notifier):
     """
