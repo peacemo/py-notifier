@@ -1,15 +1,12 @@
 # Py-Notifier
 
-To push text to your iPhone via Bark Server or push something to your E-mail!
+To push text to your iPhone via Bark Server or push something to your Webhook!
 
 - TODOS
 
 - [X] Bark
-- [ ] E-mail
+- [ ] Webhook
 - [ ] Local push - system notification, or just a simple sound play.
-
-  - [X] Windows 10+ (Tested on Windows 11 21H2 22000.1936)
-  - [ ] Gnome
 
 ## Installation
 
